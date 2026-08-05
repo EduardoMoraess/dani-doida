@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Global Pet Care | Premium Animal Care & Luxury Grooming</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette Global Tech & Luxury */
+            --copper-primary: #FF5A36;
+            --copper-glow: rgba(255, 90, 54, 0.4);
+            --pink-accent: #FF007F;
+            --pink-glow: rgba(255, 0, 127, 0.35);
+            
+            --bg-void: #08090C;
+            --bg-card: rgba(18, 20, 29, 0.7);
+            --bg-card-hover: rgba(28, 31, 45, 0.85);
+            
+            --text-main: #FFFFFF;
+            --text-dim: #94A3B8;
+            --text-muted: #64748B;
+            
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --border-highlight: rgba(255, 90, 54, 0.5);
+            
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(255, 90, 54, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(255, 0, 127, 0.1) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* HEADER & NAVBAR GLOBAL */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 9, 12, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--pink-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--pink-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-cta-nav {
+            background: linear-gradient(135deg, var(--copper-primary), var(--pink-accent));
+            color: #FFF;
+            padding: 12px 28px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 0 20px var(--copper-glow);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta-nav:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--pink-glow);
+        }
+
+        /* HERO SECTION IMPACTANTE */
+        .hero {
+            padding: 200px 0 120px;
+            position: relative;
+        }
+
+        .hero-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            padding: 8px 18px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge span {
+            color: var(--copper-primary);
+        }
+
+        .hero-title {
+            font-size: 4.2rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 28px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 30%, var(--copper-primary) 70%, var(--pink-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+            max-width: 580px;
+            font-weight: 400;
+        }
+
+        /* CARD 3D GLASSMORPHISM DA EXECUTIVA / FUNDADORA */
+        .founder-stage {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .founder-card-glass {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 32px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            transition: all 0.5s ease;
+        }
+
+        .founder-card-glass:hover {
+            border-color: var(--border-highlight);
+            transform: translateY(-8px);
+        }
+
+        .image-frame {
+            width: 100%;
+            height: 480px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .glass-tag {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(8, 9, 12, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .glass-tag-info h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .glass-tag-info p {
+            font-size: 0.85rem;
+            color: var(--copper-primary);
+            font-weight: 600;
+        }
+
+        /* METRICS / METRICAS GLOBAIS */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 100px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            padding: 40px;
+            border-radius: 28px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-item h3 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #FFF, var(--copper-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metric-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* SERVIÇOS EM GRADE TECH */
+        .services-section {
+            padding: 140px 0;
+        }
+
+        .section-headline {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-headline h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-top: 12px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .card-service-luxe {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 28px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card-service-luxe:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--copper-primary);
+            transform: translateY(-10px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(255, 90, 54, 0.15), rgba(255, 0, 127, 0.15));
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 32px;
+        }
+
+        .card-service-luxe h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .card-service-luxe p {
+            color: var(--text-dim);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* CTA GLOBAL ULTRA IMPACTANTE */
+        .global-cta {
+            margin: 100px 0 140px;
+            background: linear-gradient(135deg, rgba(255, 90, 54, 0.15), rgba(255, 0, 127, 0.15));
+            border: 1px solid var(--border-highlight);
+            border-radius: 36px;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .global-cta h2 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .global-cta p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* FOOTER PREMIUM */
+        footer {
+            border-top: 1px solid var(--border-glass);
+            padding: 60px 0 40px;
+            background: #050608;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-rights {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1024px) {
+            .hero-wrapper, .grid-3 { grid-template-columns: 1fr; }
+            .hero-title { font-size: 3rem; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR INTERNACIONAL -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="dot"></div> AURA <span>GLOBAL</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">World-Class Standard</a></li>
+                <li><a href="#services">Services & Spa</a></li>
+                <li><a href="#global">Global Units</a></li>
+            </ul>
+            <a href="#booking" class="btn-cta-nav">Book VIP Appointment</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-wrapper">
+                <div>
+                    <div class="hero-badge">
+                        <span>● LUXURY PETCARE</span> Redefining Pet Wellness
+                    </div>
+                    <h1 class="hero-title">
+                        Next-Gen Care for <span class="gradient-text">Extraordinary Pets.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Unindo ciência veterinária de ponta, instalações ultra-modernas e tratamentos de spas internacionais para proporcionar uma experiência inesquecível ao seu pet.
+                    </p>
+                    <a href="#booking" class="btn-cta-nav" style="padding: 16px 40px; font-size: 1rem;">
+                        Agendar Atendimento Exclusivo
+                    </a>
+                </div>
+
+                <!-- CARD DA EXECUTIVA / DONA -->
+                <div class="founder-stage">
+                    <div class="founder-card-glass">
+                        <div class="image-frame">
+                            <img src="Captura de tela de 2026-07-27 22-37-42.png" alt="Executive Director & Founder">
+                            <div class="glass-tag">
+                                <div class="glass-tag-info">
+                                    <h4>Chief Executive Officer</h4>
+                                    <p>Fundadora & Master Groomer Global</p>
+                                </div>
+                                <span style="font-size: 1.5rem;">👑</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BARRA DE MÉTRICAS -->
+            <div class="metrics-bar">
+                <div class="metric-item">
+                    <h3>12k+</h3>
+                    <p>Pets Atendidos no Ano</p>
+                </div>
+                <div class="metric-item">
+                    <h3>100%</h3>
+                    <p>Orgânico & Hipoalergênico</p>
+                </div>
+                <div class="metric-item">
+                    <h3>15+</h3>
+                    <p>Prêmios de Grooming</p>
+                </div>
+                <div class="metric-item">
+                    <h3>5.0 ★</h3>
+                    <p>Índice de Satisfação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS LUXURY -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-headline">
+                <div class="hero-badge">HIGH-END SERVICES</div>
+                <h2>Serviços Projetados no Padrão Global</h2>
+            </div>
+
+            <div class="grid-3">
+                <div class="card-service-luxe">
+                    <div class="icon-box">✨</div>
+                    <h3>Luxury Spa & Grooming</h3>
+                    <p>Tratamentos estéticos com banhos ozonizados, hidratações com microbolhas e estilização avançada para cada raça.</p>
+                </div>
+
+                <div class="card-service-luxe">
+                    <div class="icon-box">🧬</div>
+                    <h3>Advanced Health Care</h3>
+                    <p>Consultório com medicina preventiva avançada, protocolo vacinal internacional e diagnósticos ultrassônicos em tempo real.</p>
+                </div>
+
+                <div class="card-service-luxe">
+                    <div class="icon-box">🛸</div>
+                    <h3>Suite Resort 24/7</h3>
+                    <p>Acomodações privativas com climatização inteligente, transmissão de vídeo ao vivo HD e rotina de estímulos sensoriais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA INTERNACIONAL -->
+    <section class="container" id="booking">
+        <div class="global-cta">
+            <h2>Pronto para proporcionar o melhor ao seu pet?</h2>
+            <p>Garanta um atendimento personalizado com nossa diretoria técnica e descubra o padrão AURA Global.</p>
+            <a href="https://wa.me/" class="btn-cta-nav" style="padding: 18px 48px; font-size: 1.1rem;">
+                Reservar Horário no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="brand-logo">
+                    <div class="dot"></div> AURA <span>GLOBAL</span>
+                </a>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    The New Standard in Global Animal Care & Luxury Grooming.
+                </p>
+            </div>
+            <div class="footer-rights">
+                © 2026 AURA Global Pet Care. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
